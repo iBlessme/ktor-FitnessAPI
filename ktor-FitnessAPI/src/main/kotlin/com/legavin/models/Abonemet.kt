@@ -34,7 +34,7 @@ class AbonementEntity(id: EntityID<Int>) : IntEntity(id){
     var dateFinish by Abonements.dateFinish
 
     //   var bonusProgram by bonusProgram referencedOn BonusProgram.nameProgram
-    var bonus by BonusProgramEntity referencedOn BonusPrograms.bonus
+    var bonus by BonusProgramEntity referencedOn Abonements.bonus
 
 
 }
