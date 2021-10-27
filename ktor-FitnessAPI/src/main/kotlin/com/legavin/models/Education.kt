@@ -34,7 +34,7 @@ class EducationsEntity(id: EntityID<Int>) : IntEntity(id){
     var serialNumber by Educations.serialNumber
     var institution by Educations.institution
 
-    var worker by WorkerEntity referencedOn Workers.worker
+    var worker by WorkerEntity referencedOn Educations.worker
 
 
 }

@@ -22,9 +22,9 @@ class SportInventoryEntity(id: EntityID<Int>) : IntEntity(id) {
 
     var inventory by SportInventorys.inventory
 
-    var typesInventory by TypesOfInventoryEntity referencedOn TypesOfInventorys.typeInventory
-    var hall by HallEntity referencedOn Halls.hall
-    var fabricator by FabricatorEntity referencedOn Fabricators.fabricator
+    var typesInventory by TypesOfInventoryEntity referencedOn SportInventorys.typesInventory
+    var hall by HallEntity referencedOn SportInventorys.hall
+    var fabricator by FabricatorEntity referencedOn SportInventorys.fabricator
 }
 
 @Serializable

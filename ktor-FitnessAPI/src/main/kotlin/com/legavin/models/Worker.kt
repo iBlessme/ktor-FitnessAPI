@@ -21,8 +21,8 @@ class WorkerEntity(id: EntityID<Int>) : IntEntity(id) {
     var worker by Workers.worker
     var salary by Workers.salary
 
-    var position by PositionWorkEntity referencedOn PositionWorks.position
-    var user by UserClubEntity referencedOn UserClubs.user
+    var position by PositionWorkEntity referencedOn Workers.position
+    var user by UserClubEntity referencedOn Workers.user
 
 }
 

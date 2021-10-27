@@ -22,7 +22,7 @@ class HallEntity(id: EntityID<Int>) : IntEntity(id) {
     var nameHall by Halls.nameHall
     var capacity by Halls.capacity
 
-    var typesOfTraning by TypesOfTraningEntity referencedOn TypesOfTranings.traning
+    var typesOfTraning by TypesOfTraningEntity referencedOn Halls.typesOfTraning
 }
 
 @Serializable

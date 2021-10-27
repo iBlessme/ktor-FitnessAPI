@@ -22,7 +22,7 @@ class ClientEntity(id: EntityID<Int>) : IntEntity(id){
     var client by Clients.client
 
     var abonement by AbonementEntity referencedOn Abonements.abonement
-    var user by UserClubEntity referencedOn UserClubs.user
+    var user by UserClubEntity referencedOn Clients.user
 
 }
     @Serializable

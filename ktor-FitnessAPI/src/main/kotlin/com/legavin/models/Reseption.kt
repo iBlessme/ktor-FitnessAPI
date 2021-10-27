@@ -22,9 +22,9 @@ class ReseptionEntity(id: EntityID<Int>) : IntEntity(id) {
 
     var reseption by Reseptions.reseption
 
-    var inventory by SportInventoryEntity referencedOn SportInventorys.inventory
-    var worker by WorkerEntity referencedOn Workers.worker
-    var client by ClientEntity referencedOn Clients.client
+    var inventory by SportInventoryEntity referencedOn Reseptions.inventory
+    var worker by WorkerEntity referencedOn Reseptions.worker
+    var client by ClientEntity referencedOn Reseptions.client
 }
 
 @Serializable
