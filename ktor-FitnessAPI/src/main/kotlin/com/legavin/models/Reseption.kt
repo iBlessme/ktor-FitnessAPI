@@ -8,19 +8,17 @@ import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.Column
 
-object Reseptions: IntIdTable(columnName = "id_reseption"){
-    val reseption: Column<String> = varchar("reseption", 50)
+object Reseptions: IntIdTable("reseption","id_reseption"){
 
-    val inventory = reference("inventory", SportInventorys)
-    val worker = reference("worker", Workers)
-    val client = reference("client", Clients)
+    val inventory = reference("sportinventory_id", SportInventorys)
+    val worker = reference("worker_id", Workers)
+    val client = reference("client_id", Clients)
 
 }
 
 class ReseptionEntity(id: EntityID<Int>) : IntEntity(id) {
     companion object : IntEntityClass<ReseptionEntity>(Reseptions)
 
-    var reseption by Reseptions.reseption
 
     var inventory by SportInventoryEntity referencedOn Reseptions.inventory
     var worker by WorkerEntity referencedOn Reseptions.worker
@@ -29,11 +27,10 @@ class ReseptionEntity(id: EntityID<Int>) : IntEntity(id) {
 
 @Serializable
 data class Reseption(
-    @Transient val people : ReseptionEntity? = null
+    @Transient val model : ReseptionEntity? = null
 ){
-    val reseption = people?.reseption
 
-    val inventory = people?.inventory.toString()
-    val worker = people?.worker.toString()
-    val client = people?.client.toString()
+    val inventory = model?.inventory.toString()
+    val worker = model?.worker.toString()
+    val client = model?.client.toString()
 }

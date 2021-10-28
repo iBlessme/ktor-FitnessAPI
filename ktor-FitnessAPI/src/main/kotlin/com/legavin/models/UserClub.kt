@@ -10,23 +10,21 @@ import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.`java-time`.datetime
 import java.time.LocalDateTime
 
-object UserClubs: IntIdTable(columnName = "id_user"){
-    val user: Column<String> = varchar("user", 50)
-    val name: Column<String> = varchar("name", 50)
+object UserClubs: IntIdTable("userclub","id_user"){
+    val name: Column<String> = varchar("nameuser", 50)
     val surname: Column<String> = varchar("surname", 50)
-    val therdName: Column<String> = varchar("therdName", 50)
-    val passportNumber: Column<Int> = integer("passportNumber")
-    val passportSerial: Column<Int> = integer("passportSerial")
-    val phoneNumber: Column<String> = varchar("phoneNumber", 12)
+    val therdName: Column<String> = varchar("thirdname", 50)
+    val passportNumber: Column<Int> = integer("passportnumber")
+    val passportSerial: Column<Int> = integer("passportserial")
+    val phoneNumber: Column<String> = varchar("phonenumber", 12)
     val login: Column<String> = varchar("login", 50)
     val password: Column<String> = varchar("password", 50)
-    val birthDay: Column<LocalDateTime> = datetime("birthDay")
+    val birthDay: Column<LocalDateTime> = datetime("birthday")
     val snils: Column<Int> = integer("snils")
 }
 
 class UserClubEntity(id: EntityID<Int>) : IntEntity(id) {
     companion object : IntEntityClass<UserClubEntity>(UserClubs)
-    var user by UserClubs.user
     var name by UserClubs.name
     var surename by UserClubs.surname
     var therdName by UserClubs.therdName
@@ -42,19 +40,18 @@ class UserClubEntity(id: EntityID<Int>) : IntEntity(id) {
 
 @Serializable
 data class UserClub(
-    @Transient val people : UserClubEntity? = null
+    @Transient val model : UserClubEntity? = null
 ){
-    val user = people?.user
-    val name = people?.name
-    val surename = people?.surename
-    val therdName =  people?.therdName
-    val passportNumber = people?.passportNumber
-    val passportSerial = people?.passportSerial
-    val phoneNumber = people?.phoneNumber
-    val login = people?.login
-    val password = people?.password
-    val birthDay = people?.birthDay.toString()
-    val snils = people?.snils
+    val name = model?.name
+    val surename = model?.surename
+    val therdName =  model?.therdName
+    val passportNumber = model?.passportNumber
+    val passportSerial = model?.passportSerial
+    val phoneNumber = model?.phoneNumber
+    val login = model?.login
+    val password = model?.password
+    val birthDay = model?.birthDay.toString()
+    val snils = model?.snils
 
 
 

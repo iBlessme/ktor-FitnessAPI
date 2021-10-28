@@ -8,9 +8,9 @@ import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.Column
 
-object TypesOfInventorys: IntIdTable(columnName = "id_typesOfInventory"){
-    val typeInventory: Column<String> = varchar("typeInventory", 50)
-    val nameInventory: Column<String> = varchar("nameInventory", 50)
+object TypesOfInventorys: IntIdTable("typesofinventory", "id_typesofinventory"){
+    val typeInventory: Column<String> = varchar("id_typesofinventory", 50)
+    val nameInventory: Column<String> = varchar("nameinventory", 50)
 
 }
 
@@ -22,9 +22,9 @@ class TypesOfInventoryEntity(id: EntityID<Int>) : IntEntity(id) {
 
 @Serializable
 data class TypesOfInventory(
-    @Transient val people : TypesOfInventoryEntity? = null
+    @Transient val model : TypesOfInventoryEntity? = null
 ){
-    val nameInventory = people?.nameInventory
-    val typeInventory = people?.typeInventory
+    val nameInventory = model?.nameInventory
+    val typeInventory = model?.typeInventory
 
 }

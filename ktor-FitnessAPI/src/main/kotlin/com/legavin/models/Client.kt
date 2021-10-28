@@ -11,8 +11,8 @@ import org.jetbrains.exposed.sql.Column
 object Clients: IntIdTable("Client","id_client") {
     val client: Column<String> = varchar("client", 50)
 
-    val abonement = reference("abonement", Abonements)
-    val user = reference("user", UserClubs)
+    val abonement = reference("abonement_id", Abonements)
+    val user = reference("userclub_id", UserClubs)
 }
 
 class ClientEntity(id: EntityID<Int>) : IntEntity(id){
@@ -20,7 +20,7 @@ class ClientEntity(id: EntityID<Int>) : IntEntity(id){
 
     var client by Clients.client
 
-//    var abonement by AbonementEntity referencedOn Abonements.abonement
+    var abonement by AbonementEntity referencedOn Clients.abonement
     var user by UserClubEntity referencedOn Clients.user
 
 }
@@ -29,7 +29,7 @@ class ClientEntity(id: EntityID<Int>) : IntEntity(id){
         val id = model!!.id.value
         val client = model!!.client
 
-//        val abonement = model!!.abonement.toString()
+        val abonement = model!!.abonement.toString()
         val user = model!!.user.toString()
     }
 

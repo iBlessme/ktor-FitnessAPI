@@ -8,17 +8,15 @@ import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.Column
 
-object Workers: IntIdTable(columnName = "id_worker") {
-    val worker: Column<String> = varchar("worker", 50)
+object Workers: IntIdTable("worker","id_worker") {
     val salary: Column<Int> = integer("salary")
 
-    val position = reference("position", PositionWorks)
-    val user = reference("user", UserClubs)
+    val position = reference("position_id", PositionWorks)
+    val user = reference("user_id", UserClubs)
 }
 
 class WorkerEntity(id: EntityID<Int>) : IntEntity(id) {
     companion object : IntEntityClass<WorkerEntity>(Workers)
-    var worker by Workers.worker
     var salary by Workers.salary
 
     var position by PositionWorkEntity referencedOn Workers.position
@@ -28,11 +26,10 @@ class WorkerEntity(id: EntityID<Int>) : IntEntity(id) {
 
 @Serializable
 data class Worker(
-    @Transient val people : WorkerEntity? = null
+    @Transient val model : WorkerEntity? = null
 ){
-    val worker = people?.worker
-    val salary = people?.salary
+    val salary = model?.salary
 
-    val position = people?.position.toString()
-    val user = people?.user.toString()
+    val position = model?.position.toString()
+    val user = model?.user.toString()
 }

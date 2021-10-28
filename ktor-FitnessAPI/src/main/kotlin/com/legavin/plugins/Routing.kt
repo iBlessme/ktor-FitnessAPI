@@ -20,46 +20,46 @@ fun Application.configureRouting() {
             transaction {
                 BonusProgramEntity.all().map { BonusProgram(it)}
             }
-        val education =
-            transaction {
-                Education(EducationsEntity.all().elementAt(0))
-            }
-        val fabricator =
-            transaction {
-                Fabricator(FabricatorEntity.all().elementAt(0))
-            }
-        val hall =
-            transaction {
-                Hall(HallEntity.all().elementAt(0))
-            }
-        val position =
-            transaction {
-                PositionWork(PositionWorkEntity.all().elementAt(0))
-            }
-        val reseption =
-            transaction {
-                Reseption(ReseptionEntity.all().elementAt(0))
-            }
-        val sportInventory =
-            transaction {
-                SportInventory(SportInventoryEntity.all().elementAt(0))
-            }
-        val typesOfTraning=
-            transaction {
-                TypesOfTraning(TypesOfTraningEntity.all().elementAt(0))
-            }
-        val typesOfInventory =
-            transaction {
-                TypesOfInventory(TypesOfInventoryEntity.all().elementAt(0))
-            }
-        val user =
-            transaction {
-                UserClub(UserClubEntity.all().elementAt(0))
-            }
-        val worker =
-            transaction {
-                Worker(WorkerEntity.all().elementAt(0))
-            }
+//        val education =
+//            transaction {
+//                Education(EducationsEntity.all().elementAt(0))
+//            }
+//        val fabricator =
+//            transaction {
+//                Fabricator(FabricatorEntity.all().elementAt(0))
+//            }
+//        val hall =
+//            transaction {
+//                Hall(HallEntity.all().elementAt(0))
+//            }
+//        val position =
+//            transaction {
+//                PositionWork(PositionWorkEntity.all().elementAt(0))
+//            }
+//        val reseption =
+//            transaction {
+//                Reseption(ReseptionEntity.all().elementAt(0))
+//            }
+//        val sportInventory =
+//            transaction {
+//                SportInventory(SportInventoryEntity.all().elementAt(0))
+//            }
+//        val typesOfTraning=
+//            transaction {
+//                TypesOfTraning(TypesOfTraningEntity.all().elementAt(0))
+//            }
+//        val typesOfInventory =
+//            transaction {
+//                TypesOfInventory(TypesOfInventoryEntity.all().elementAt(0))
+//            }
+//        val user =
+//            transaction {
+//                UserClub(UserClubEntity.all().elementAt(0))
+//            }
+//        val worker =
+//            transaction {
+//                Worker(WorkerEntity.all().elementAt(0))
+//            }
 
 
         get("/Abonement") {

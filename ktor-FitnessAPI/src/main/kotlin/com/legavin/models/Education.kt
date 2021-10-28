@@ -10,22 +10,20 @@ import org.jetbrains.exposed.sql.Column
 import org.jetbrains.exposed.sql.`java-time`.datetime
 import java.time.LocalDateTime
 
-object Educations: IntIdTable("Education","id_education"){
-    val education: Column<String> = varchar("education", 50)
+object Educations: IntIdTable("education","id_education"){
     val qualification: Column<String> = varchar("qualification", 50)
     val stage: Column<String> = varchar("stage", 50)
-    val dateOfissue: Column<LocalDateTime> = datetime("dateOfissue")
-    val registrationNumber: Column<Int> = integer("registrationNumber")
-    val serialNumber: Column<Int> = integer("serialNumber")
+    val dateOfissue: Column<LocalDateTime> = datetime("dateofissue")
+    val registrationNumber: Column<Int> = integer("registrationnumber")
+    val serialNumber: Column<Int> = integer("serialnumber")
     val institution: Column<String> = varchar("institution", 50)
 
-    val worker = reference("worker", Workers)
+    val worker = reference("worker_id", Workers)
 }
 
 class EducationsEntity(id: EntityID<Int>) : IntEntity(id){
     companion object : IntEntityClass<EducationsEntity>(Educations)
 
-    var education by Educations.education
     var qualification by Educations.qualification
     var stage by Educations.stage
     var dateOfissue by Educations.dateOfissue
@@ -40,7 +38,6 @@ class EducationsEntity(id: EntityID<Int>) : IntEntity(id){
     @Serializable
     data class Education(@Transient val model: EducationsEntity? = null){
         val id = model!!.id.value
-        val education = model!!.education
         val qualification = model!!.qualification
         val stage = model!!.stage
         val registrationNumber = model!!.registrationNumber
