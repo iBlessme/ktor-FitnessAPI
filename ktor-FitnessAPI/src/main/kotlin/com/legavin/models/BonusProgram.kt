@@ -9,8 +9,8 @@ import org.jetbrains.exposed.sql.Column
 
 object BonusPrograms: IntIdTable("Bonusprogram","id_bonusprogram"){
 //    val bonus: Column<String> = varchar("bonus", 50)
-    val nameProgram: Column<String> = varchar("nameProgram", 50)
-    val costProgram: Column<String> = varchar("costProgram", 50)
+    val nameProgram: Column<String> = varchar("nameprogram", 50)
+    val costProgram: Column<String> = varchar("costprogram", 50)
 }
 
 class BonusProgramEntity(id: EntityID<Int>) : IntEntity(id){
