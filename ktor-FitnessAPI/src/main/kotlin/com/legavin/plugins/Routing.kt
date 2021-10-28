@@ -18,7 +18,7 @@ fun Application.configureRouting() {
             }
         val bonus =
             transaction {
-                BonusProgram(BonusProgramEntity.all().elementAt(0))
+                BonusProgramEntity.all().map { BonusProgram(it)}
             }
         val education =
             transaction {
