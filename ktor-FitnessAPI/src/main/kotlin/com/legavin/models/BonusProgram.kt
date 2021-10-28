@@ -7,8 +7,8 @@ import org.jetbrains.exposed.dao.id.EntityID
 import org.jetbrains.exposed.dao.id.IntIdTable
 import org.jetbrains.exposed.sql.Column
 
-object BonusPrograms: IntIdTable("Bonus","id_bonusProgram"){
-    val bonus: Column<String> = varchar("bonus", 50)
+object BonusPrograms: IntIdTable("Bonusprogramm","id_bonusprogram"){
+//    val bonus: Column<String> = varchar("bonus", 50)
     val nameProgram: Column<String> = varchar("nameProgram", 50)
     val costProgram: Column<String> = varchar("costProgram", 50)
 }
@@ -16,7 +16,7 @@ object BonusPrograms: IntIdTable("Bonus","id_bonusProgram"){
 class BonusProgramEntity(id: EntityID<Int>) : IntEntity(id){
     companion object : IntEntityClass<BonusProgramEntity>(BonusPrograms)
 
-    var bonus by BonusPrograms.bonus
+//    var bonus by BonusPrograms.bonus
     var nameProgram by BonusPrograms.nameProgram
     var costProgram by BonusPrograms.costProgram
 
@@ -25,7 +25,7 @@ class BonusProgramEntity(id: EntityID<Int>) : IntEntity(id){
     @Serializable
     data class BonusProgram(@Transient val model: BonusProgramEntity? = null){
         val id = model!!.id.value
-        val bonus = model!!.bonus
+//        val bonus = model!!.bonus
         val nameProgram = model!!.nameProgram
         val costProgram = model!!.costProgram
     }
