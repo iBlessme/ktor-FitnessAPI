@@ -20,7 +20,7 @@ class ClientEntity(id: EntityID<Int>) : IntEntity(id){
 
     var client by Clients.client
 
-    var abonement by AbonementEntity referencedOn Abonements.abonement
+//    var abonement by AbonementEntity referencedOn Abonements.abonement
     var user by UserClubEntity referencedOn Clients.user
 
 }
@@ -29,7 +29,7 @@ class ClientEntity(id: EntityID<Int>) : IntEntity(id){
         val id = model!!.id.value
         val client = model!!.client
 
-        val abonement = model!!.abonement.toString()
+//        val abonement = model!!.abonement.toString()
         val user = model!!.user.toString()
     }
 
