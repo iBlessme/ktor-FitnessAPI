@@ -14,7 +14,7 @@ fun Application.configureRouting() {
 
         val abon =
             transaction {
-                Abonemet(AbonementEntity.all().elementAt(0))
+                AbonementEntity.all().map { Abonemet(it) }
             }
         val bonus =
             transaction {
