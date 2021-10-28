@@ -12,10 +12,10 @@ import java.time.LocalDateTime
 
 object Abonements: IntIdTable("Abonement", "id_abonement"){
 //    val abonement: Column<String> = varchar("abonement", 50)
-    val nameAbonement: Column<String> = varchar("nameAbonement", 50)
-    val costAbonement: Column<String> = varchar("costAbonement", 50)
-    val dateStart: Column<LocalDateTime> = datetime("dateStart")
-    val dateFinish: Column<LocalDateTime> = datetime("dateFinish")
+    val nameAbonement: Column<String> = varchar("nameabonement", 50)
+    val costAbonement: Column<String> = varchar("costabonement", 50)
+    val dateStart: Column<LocalDateTime> = datetime("datestart")
+    val dateFinish: Column<LocalDateTime> = datetime("datefinish")
 
     //forKey
    val bonus = reference("bonusprogram_id", BonusPrograms)
