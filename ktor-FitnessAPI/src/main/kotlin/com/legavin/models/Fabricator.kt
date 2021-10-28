@@ -1,6 +1,5 @@
 package com.legavin.models
 
-import com.legavin.EntityWithModel
 import kotlinx.serialization.Serializable
 import kotlinx.serialization.Transient
 import org.jetbrains.exposed.dao.IntEntity
